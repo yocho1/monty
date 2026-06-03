@@ -30,9 +30,22 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* Function prototypes */
+/* Core opcode functions */
 void push(stack_t **stack, unsigned int line_number, char *arg);
 void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
+
+/* Executor functions */
+void exec_push(stack_t **stack, char *arg, unsigned int line_number,
+	char *line, FILE *file);
+void exec_pall(stack_t **stack, unsigned int line_number,
+	char *line, FILE *file);
+void exec_pint(stack_t **stack, unsigned int line_number,
+	char *line, FILE *file);
+void exec_unknown(stack_t **stack, char *opcode, unsigned int line_number,
+	char *line, FILE *file);
+
+/* Utility functions */
 void free_stack(stack_t **stack);
 int is_integer(char *str);
 void process_line(stack_t **stack, char *line,
