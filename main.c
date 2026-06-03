@@ -1,49 +1,11 @@
 #include "monty.h"
 
 /**
- * parse_and_execute - parses opcode and executes it
- * @stack: pointer to stack
- * @opcode: operation code
- * @arg: argument
- * @line_number: current line number
- * @line: line buffer (for cleanup)
- * @file: file pointer (for cleanup)
- */
-void parse_and_execute(stack_t **stack, char *opcode, char *arg,
-	unsigned int line_number, char *line, FILE *file)
-{
-	if (strcmp(opcode, "push") == 0)
-	{
-		if (!arg || !is_integer(arg))
-		{
-			fprintf(stderr, "L%u: usage: push integer\n", line_number);
-			free(line);
-			fclose(file);
-			free_stack(stack);
-			exit(EXIT_FAILURE);
-		}
-		push(stack, line_number, arg);
-	}
-	else if (strcmp(opcode, "pall") == 0)
-	{
-		pall(stack, line_number);
-	}
-	else
-	{
-		fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
-		free(line);
-		fclose(file);
-		free_stack(stack);
-		exit(EXIT_FAILURE);
-	}
-}
-
-/**
  * process_line - processes a single line of Monty bytecode
  * @stack: pointer to the stack head
  * @line: line to process
  * @line_number: current line number
- * @file: file pointer (for cleanup on error)
+ * @file: file pointer
  */
 void process_line(stack_t **stack, char *line,
 	unsigned int line_number, FILE *file)
@@ -65,7 +27,34 @@ void process_line(stack_t **stack, char *line,
 
 	arg = strtok(NULL, " \t");
 
-	parse_and_execute(stack, opcode, arg, line_number, line, file);
+	if (strcmp(opcode, "push") == 0)
+	{
+		if (!arg || !is_integer(arg))
+		{
+			fprintf(stderr, "L%u: usage: push integer\n", line_number);
+			free(line);
+			fclose(file);
+			free_stack(stack);
+			exit(EXIT_FAILURE);
+		}
+		push(stack, line_number, arg);
+	}
+	else if (strcmp(opcode, "pall") == 0)
+	{
+		pall(stack, line_number);
+	}
+	else if (strcmp(opcode, "pint") == 0)
+	{
+		pint(stack, line_number);
+	}
+	else
+	{
+		fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
+		free(line);
+		fclose(file);
+		free_stack(stack);
+		exit(EXIT_FAILURE);
+	}
 }
 
 /**
