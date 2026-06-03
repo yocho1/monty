@@ -8,23 +8,23 @@
  */
 int is_integer(char *str)
 {
-    if (!str || *str == '\0')
-        return (0);
-    
-    if (*str == '-' || *str == '+')
-        str++;
-    
-    if (*str == '\0')
-        return (0);
-    
-    while (*str)
-    {
-        if (!isdigit(*str))
-            return (0);
-        str++;
-    }
-    
-    return (1);
+	if (!str || *str == '\0')
+		return (0);
+
+	if (*str == '-' || *str == '+')
+		str++;
+
+	if (*str == '\0')
+		return (0);
+
+	while (*str)
+	{
+		if (!isdigit(*str))
+			return (0);
+		str++;
+	}
+
+	return (1);
 }
 
 /**
@@ -33,12 +33,12 @@ int is_integer(char *str)
  */
 void free_stack(stack_t **stack)
 {
-    stack_t *temp;
+	stack_t *temp;
 
-    while (*stack)
-    {
-        temp = *stack;
-        *stack = (*stack)->next;
-        free(temp);
-    }
+	while (*stack)
+	{
+		temp = *stack;
+		*stack = (*stack)->next;
+		free(temp);
+	}
 }
