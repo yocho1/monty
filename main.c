@@ -63,6 +63,10 @@ void process_line(stack_t **stack, char *line,
 	{
 		nop(stack, line_number);
 	}
+	else if (strcmp(opcode, "div") == 0)
+	{
+		div_op(stack, line_number);
+	}
 	else
 	{
 		fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
