@@ -1,5 +1,8 @@
 #include "monty.h"
 
+/* Global mode variable: 0 = stack (default), 1 = queue */
+int mode = 0;
+
 /**
  * process_line - processes a single line of Monty bytecode
  * @stack: pointer to the stack head
@@ -98,6 +101,14 @@ void process_line(stack_t **stack, char *line,
 	else if (strcmp(opcode, "rotr") == 0)
 	{
 		rotr(stack, line_number);
+	}
+	else if (strcmp(opcode, "stack") == 0)
+	{
+		stack_mode(stack, line_number);
+	}
+	else if (strcmp(opcode, "queue") == 0)
+	{
+		queue_mode(stack, line_number);
 	}
 	else
 	{
