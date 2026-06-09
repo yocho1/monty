@@ -20,6 +20,8 @@ push 5
 pall
 rotl
 pall
+rotr
+pall
 push 10
 push 20
 push 30
