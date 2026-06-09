@@ -1,14 +1,17 @@
 # This is a comment
+push 83
+push 99
+push 104
+push 111
+push 111
+push 108
+pstr
 push 72
 push 101
 push 108
 push 108
 push 111
-pchar
-pchar
-pchar
-pchar
-pchar
+pstr
 push 10
 push 20
 push 30
@@ -36,6 +39,8 @@ push 10
 push 3
 mod
 pall
+push 72
+pchar
 nop
 push 100
 pall
