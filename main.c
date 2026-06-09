@@ -12,15 +12,19 @@ void process_line(stack_t **stack, char *line,
 {
 	char *opcode, *arg, *trimmed;
 
+	/* Trim leading whitespace */
 	trimmed = line;
 	while (*trimmed == ' ' || *trimmed == '\t')
 		trimmed++;
 
+	/* Skip empty lines and comments */
 	if (*trimmed == '\n' || *trimmed == '\0' || *trimmed == '#')
 		return;
 
+	/* Remove newline */
 	trimmed[strcspn(trimmed, "\n")] = '\0';
 
+	/* Parse opcode and argument */
 	opcode = strtok(trimmed, " \t");
 	if (!opcode)
 		return;
