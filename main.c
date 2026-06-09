@@ -83,6 +83,10 @@ void process_line(stack_t **stack, char *line,
 	{
 		mod(stack, line_number);
 	}
+	else if (strcmp(opcode, "pchar") == 0)
+	{
+		pchar(stack, line_number);
+	}
 	else
 	{
 		fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);

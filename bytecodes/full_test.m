@@ -1,4 +1,14 @@
 # This is a comment
+push 72
+push 101
+push 108
+push 108
+push 111
+pchar
+pchar
+pchar
+pchar
+pchar
 push 10
 push 20
 push 30
