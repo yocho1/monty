@@ -12,6 +12,14 @@ push 108
 push 108
 push 111
 pstr
+push 1
+push 2
+push 3
+push 4
+push 5
+pall
+rotl
+pall
 push 10
 push 20
 push 30

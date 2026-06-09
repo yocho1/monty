@@ -34,7 +34,7 @@ typedef struct instruction_s
 void push(stack_t **stack, unsigned int line_number, char *arg);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
-void pop(stack_t **stack, unsigned int line_number);void swap(stack_t **stack, unsigned int line_number);void add(stack_t **stack, unsigned int line_number);void nop(stack_t **stack, unsigned int line_number);void div_op(stack_t **stack, unsigned int line_number);void sub(stack_t **stack, unsigned int line_number);void mul(stack_t **stack, unsigned int line_number);void mod(stack_t **stack, unsigned int line_number);void pchar(stack_t **stack, unsigned int line_number);void pstr(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);void swap(stack_t **stack, unsigned int line_number);void add(stack_t **stack, unsigned int line_number);void nop(stack_t **stack, unsigned int line_number);void div_op(stack_t **stack, unsigned int line_number);void sub(stack_t **stack, unsigned int line_number);void mul(stack_t **stack, unsigned int line_number);void mod(stack_t **stack, unsigned int line_number);void pchar(stack_t **stack, unsigned int line_number);void pstr(stack_t **stack, unsigned int line_number);void rotl(stack_t **stack, unsigned int line_number);
 /* Executor functions */
 void exec_push(stack_t **stack, char *arg, unsigned int line_number,
 	char *line, FILE *file);
